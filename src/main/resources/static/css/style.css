@@ -1,0 +1,641 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: #242121;
+    background: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.topbar {
+    background: #171717;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* CABEÇALHO */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 25px 6%;
+}
+
+.logo {
+    font-size: 28px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 600px;
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.search input {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    outline: none;
+}
+
+.search button {
+    background: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.acoes {
+    display: flex;
+    gap: 15px;
+}
+
+.acoes button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* MENU */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 17px;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* BANNER */
+
+.banner {
+    margin: 30px auto;
+    width: 90%;
+    min-height: 430px;
+    background: #f1e7e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.banner-texto {
+    padding: 60px;
+    width: 50%;
+}
+
+.banner-texto p {
+    color: #99777c;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.banner-texto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.banner-texto span {
+    display: block;
+    line-height: 1.8;
+    color: #666666;
+    margin-bottom: 30px;
+}
+
+.banner-imagem {
+    width: 50%;
+    height: 430px;
+}
+
+.banner-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    padding: 15px 25px;
+    background: #171717;
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #6d4b52;
+}
+
+.botao-claro {
+    background: white;
+    color: #171717;
+}
+
+/* SEÇÕES */
+
+.secao {
+    width: 90%;
+    max-width: 1300px;
+    margin: 70px auto;
+}
+
+.secao h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.categorias {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.categorias button {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    background: white;
+    padding: 13px 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.categorias button:hover {
+    background: #171717;
+    color: white;
+}
+
+/* DESTAQUE */
+
+.destaque {
+    margin: 70px auto;
+    width: 90%;
+    padding: 50px;
+    color: white;
+    background: linear-gradient(120deg, #282222, #694d52);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.destaque p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.destaque h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.destaque span {
+    color: #dddddd;
+    line-height: 1.7;
+}
+
+/* FILTROS */
+
+.titulo-produtos {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.titulo-produtos p {
+    font-size: 10px;
+    color: #99777c;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.titulo-produtos h2 {
+    margin: 0;
+}
+
+.filtros {
+    background: #f8f6f6;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 15px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filtro label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.filtro input,
+.filtro select {
+    padding: 12px;
+    border: 1px solid #dddddd;
+    background: white;
+    outline: none;
+}
+
+.limpar {
+    border: 1px solid #cccccc;
+    background: white;
+    padding: 12px;
+    cursor: pointer;
+}
+
+/* PRODUTOS */
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.card {
+    border: 1px solid #eeeeee;
+    position: relative;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #00000010;
+}
+
+.imagem-produto {
+    height: 250px;
+    background: #f5f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.informacoes {
+    padding: 15px;
+}
+
+.marca {
+    color: #888888;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.informacoes h3 {
+    font-size: 14px;
+    margin: 10px 0;
+    min-height: 35px;
+}
+
+.avaliacao {
+    color: #a17a37;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.preco {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.adicionar {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.favorito {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.mensagem-vazia {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    color: #888888;
+}
+
+/* MARCAS */
+
+.marcas {
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+    padding-top: 35px;
+}
+
+.marcas > p {
+    color: #888888;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.marcas-lista {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+}
+
+/* MODAIS */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #00000080;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+.modal-conteudo {
+    background: white;
+    padding: 40px;
+    width: 420px;
+    max-width: 100%;
+    position: relative;
+}
+
+.modal-conteudo > p:first-child {
+    font-size: 10px;
+    color: #99777c;
+    letter-spacing: 2px;
+}
+
+.modal-conteudo h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 15px 0 25px;
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modal input {
+    padding: 13px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+}
+
+.modal .botao {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.link {
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#mensagemLogin,
+#mensagemCadastro {
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+/* CARRINHO */
+
+.carrinho {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.item-carrinho {
+    padding: 15px 0;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.item-carrinho button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777777;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    font-weight: bold;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #f5f1f1;
+    padding: 45px;
+    text-align: center;
+    color: #777777;
+}
+
+footer h2 {
+    color: #171717;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+footer span {
+    display: block;
+    margin-top: 20px;
+    font-size: 11px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+        max-width: none;
+    }
+
+    .banner-texto {
+        padding: 35px;
+    }
+
+    .banner-texto h2 {
+        font-size: 50px;
+    }
+
+    .filtros {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .produtos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .menu {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .menu a {
+        font-size: 9px;
+    }
+
+    .banner {
+        flex-direction: column;
+    }
+
+    .banner-texto {
+        width: 100%;
+        padding: 35px;
+    }
+
+    .banner-texto h2 {
+        font-size: 55px;
+    }
+
+    .banner-imagem {
+        width: 100%;
+        height: 250px;
+    }
+
+    .destaque {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 30px;
+    }
+
+    .destaque h2 {
+        font-size: 30px;
+    }
+
+    .filtros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .limpar {
+        grid-column: span 2;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .imagem-produto {
+        height: 170px;
+    }
+
+    .informacoes {
+        padding: 10px;
+    }
+
+    .informacoes h3 {
+        font-size: 12px;
+    }
+
+    .marcas-lista {
+        font-size: 16px;
+    }
+
+}

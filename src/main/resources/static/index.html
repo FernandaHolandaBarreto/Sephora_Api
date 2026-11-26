@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sephora | Beauty Store</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<div class="topbar">
+    BEAUTY IS YOURS | DESCUBRA SUA BELEZA
+</div>
+
+<header class="header">
+
+    <h1 class="logo">SEPHORA</h1>
+
+    <div class="search">
+        <input type="text" id="pesquisa"
+               placeholder="Buscar maquiagens e produtos...">
+
+        <button onclick="pesquisar()">⌕</button>
+    </div>
+
+    <div class="acoes">
+        <button onclick="abrirLogin()">♙ Login</button>
+        <button onclick="mostrarFavoritos()">♡</button>
+        <button onclick="abrirCarrinho()">🛍 <span id="contador">0</span></button>
+    </div>
+
+</header>
+
+<nav class="menu">
+    <a href="#inicio">INÍCIO</a>
+    <a href="#categorias">CATEGORIAS</a>
+    <a href="#produtos">MAQUIAGENS</a>
+    <a href="#marcas">MARCAS</a>
+    <a href="#destaques">DESTAQUES</a>
+</nav>
+
+<main>
+
+    <!-- BANNER PRINCIPAL -->
+    <section class="banner" id="inicio">
+
+        <div class="banner-texto">
+            <p>DESCUBRA SUA BELEZA</p>
+
+            <h2>Beauty<br>your way.</h2>
+
+            <span>
+                    Encontre seus produtos favoritos
+                    e descubra novas possibilidades.
+                </span>
+
+            <a href="#produtos" class="botao">
+                EXPLORAR PRODUTOS
+            </a>
+        </div>
+
+        <div class="banner-imagem">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80"
+                 alt="Produtos de maquiagem">
+        </div>
+
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="secao" id="categorias">
+
+        <h2>Explore por categoria</h2>
+
+        <div class="categorias">
+
+            <button onclick="filtrarCategoria('')">
+                Todos
+            </button>
+
+            <button onclick="filtrarCategoria('base')">
+                Bases
+            </button>
+
+            <button onclick="filtrarCategoria('batom')">
+                Batons
+            </button>
+
+            <button onclick="filtrarCategoria('blush')">
+                Blushes
+            </button>
+
+            <button onclick="filtrarCategoria('corretivo')">
+                Corretivos
+            </button>
+
+            <button onclick="filtrarCategoria('mascara')">
+                Máscaras
+            </button>
+
+            <button onclick="filtrarCategoria('paleta')">
+                Paletas
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- DESTAQUES -->
+    <section class="destaque" id="destaques">
+
+        <div>
+            <p>SELEÇÃO ESPECIAL</p>
+
+            <h2>Seu próximo<br>favorito está aqui.</h2>
+
+            <span>
+                    Cores, texturas e produtos
+                    para expressar sua beleza.
+                </span>
+        </div>
+
+        <a href="#produtos" class="botao botao-claro">
+            DESCOBRIR
+        </a>
+
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="secao" id="produtos">
+
+        <div class="titulo-produtos">
+            <div>
+                <p>SHOP BEAUTY</p>
+                <h2>Nossos produtos</h2>
+            </div>
+
+            <span id="quantidadeProdutos"></span>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filtros">
+
+            <div class="filtro">
+                <label>Categoria</label>
+
+                <select id="categoriaFiltro"
+                        onchange="aplicarFiltros()">
+
+                    <option value="">Todas</option>
+                    <option value="base">Base</option>
+                    <option value="batom">Batom</option>
+                    <option value="blush">Blush</option>
+                    <option value="corretivo">Corretivo</option>
+                    <option value="mascara">Máscara</option>
+                    <option value="paleta">Paleta</option>
+
+                </select>
+            </div>
+
+            <div class="filtro">
+                <label>Marca</label>
+
+                <input type="text"
+                       id="marcaFiltro"
+                       placeholder="Digite a marca"
+                       oninput="aplicarFiltros()">
+            </div>
+
+            <div class="filtro">
+                <label>Preço máximo</label>
+
+                <input type="number"
+                       id="precoFiltro"
+                       placeholder="R$"
+                       oninput="aplicarFiltros()">
+            </div>
+
+            <div class="filtro">
+                <label>Ordenar por</label>
+
+                <select id="ordenacao"
+                        onchange="aplicarFiltros()">
+
+                    <option value="">Recomendados</option>
+                    <option value="menor">Menor preço</option>
+                    <option value="maior">Maior preço</option>
+                    <option value="avaliacao">Melhor avaliação</option>
+
+                </select>
+            </div>
+
+            <button class="limpar" onclick="limparFiltros()">
+                Limpar filtros
+            </button>
+
+        </div>
+
+        <div class="produtos" id="listaProdutos">
+
+        </div>
+
+        <p id="mensagemVazia" class="mensagem-vazia">
+            Nenhum produto encontrado.
+        </p>
+
+    </section>
+
+    <!-- MARCAS -->
+    <section class="secao marcas" id="marcas">
+
+        <p>ENCONTRE SUAS MARCAS FAVORITAS</p>
+
+        <div class="marcas-lista">
+            <span>SEPHORA</span>
+            <span>BT</span>
+            <span>MAC</span>
+            <span>RARE BEAUTY</span>
+            <span>MAKEUP</span>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- LOGIN -->
+<div class="modal" id="modalLogin">
+
+    <div class="modal-conteudo">
+
+        <button class="fechar" onclick="fecharLogin()">×</button>
+
+        <p>SEPHORA BEAUTY</p>
+
+        <h2>Faça seu login</h2>
+
+        <form id="formLogin">
+
+            <label>Email</label>
+            <input type="email" id="emailLogin" required>
+
+            <label>Senha</label>
+            <input type="password" id="senhaLogin" required>
+
+            <button class="botao" type="submit">
+                ENTRAR
+            </button>
+
+        </form>
+
+        <p id="mensagemLogin"></p>
+
+        <button class="link"
+                onclick="abrirCadastro()">
+            Criar uma conta
+        </button>
+
+    </div>
+
+</div>
+
+<!-- CADASTRO -->
+<div class="modal" id="modalCadastro">
+
+    <div class="modal-conteudo">
+
+        <button class="fechar" onclick="fecharCadastro()">×</button>
+
+        <p>SEPHORA BEAUTY</p>
+
+        <h2>Crie sua conta</h2>
+
+        <form id="formCadastro">
+
+            <label>Apelido</label>
+            <input type="text" id="apelidoCadastro" required>
+
+            <label>Email</label>
+            <input type="email" id="emailCadastro" required>
+
+            <label>Senha</label>
+            <input type="password" id="senhaCadastro" required>
+
+            <button class="botao" type="submit">
+                CADASTRAR
+            </button>
+
+        </form>
+
+        <p id="mensagemCadastro"></p>
+
+    </div>
+
+</div>
+
+<!-- CARRINHO -->
+<div class="modal" id="modalCarrinho">
+
+    <div class="modal-conteudo carrinho">
+
+        <button class="fechar" onclick="fecharCarrinho()">×</button>
+
+        <h2>Minha sacola</h2>
+
+        <div id="itensCarrinho"></div>
+
+        <div class="total">
+            Total: <span id="totalCarrinho">R$ 0,00</span>
+        </div>
+
+        <button class="botao" onclick="finalizarCompra()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <h2>SEPHORA</h2>
+
+    <p>Explore, experimente e encontre sua beleza.</p>
+
+    <span>Projeto acadêmico</span>
+
+</footer>
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>
